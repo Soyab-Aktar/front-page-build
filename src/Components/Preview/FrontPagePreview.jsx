@@ -9,7 +9,7 @@ const FrontPagePreview = forwardRef(({ data }, ref) => {
   return (
     <div
       ref={ref}
-      className="w-[210mm] h-[297mm] bg-white p-10 text-black shadow-md mx-auto"
+      className="w-[210mm] h-[297mm] bg-white p-10 text-black shadow-md mx-auto "
     >
       <div className=" flex flex-col justify-between h-full border-8 border-double border-black p-4">
         <h1 className="text-7xl font-bold text-center mb-6">

@@ -59,18 +59,18 @@ const Homepage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-4">
-      <div className="card w-full max-w-2xl shadow-2xl bg-white">
-        <div className="card-body">
-          <h2 className="text-2xl font-bold mb-4 text-emerald-500">
+    <div className="min-h-screen bg-black flex items-center justify-center p-6">
+      <div className="card w-full max-w-2xl bg-black border-4 border-double border-emerald-800 rounded-2xl shadow-[0_0_40px_10px_rgba(16,185,129,0.25)] transition-all duration-500 hover:shadow-[0_0_60px_15px_rgba(16,185,129,0.35)]">
+        <div className="card-body p-6">
+          <h2 className="text-3xl font-bold mb-6 text-emerald-400 tracking-wide">
             Front Page Details
           </h2>
 
-          <form className="space-y-4">
+          <form className="space-y-5">
             {fields.map(({ name, label, placeholder }) => (
               <div key={name} className="form-control w-full">
-                <label className="label">
-                  <span className="label-text text-gray-300 font-semibold">
+                <label className="label mb-1">
+                  <span className="text-gray-300 font-medium tracking-wide">
                     {label}
                   </span>
                 </label>
@@ -80,14 +80,15 @@ const Homepage = () => {
                   placeholder={placeholder}
                   value={formData[name]}
                   onChange={handleChange}
-                  className="input input-bordered border-emerald-900 w-full"
+                  className="input input-bordered w-full bg-gray-900 text-white border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 placeholder-gray-500"
                 />
               </div>
             ))}
+
             <button
               type="submit"
               onClick={handleSubmit}
-              className="btn bg-emerald-600 hover:bg-emerald-700 text-white w-full mt-4"
+              className="btn bg-emerald-600 hover:bg-emerald-700 text-white w-full mt-4 font-semibold tracking-wide transition duration-300"
             >
               Submit
             </button>

@@ -1,6 +1,6 @@
 // src/Components/Preview/Preview.jsx
 import React, { useRef } from "react";
-import html2canvas from "html2canvas";
+import html2canvas from "html2canvas-pro";
 import jsPDF from "jspdf";
 import { useLocation } from "react-router-dom";
 import FrontPagePreview from "./FrontPagePreview";
@@ -21,7 +21,7 @@ const Preview = () => {
 
     html2canvas(input, { scale: 2 })
       .then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
+        const imgData = canvas.toDataURL("image/jpeg", 0.7);
         const pdf = new jsPDF("p", "mm", "a4");
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = pdf.internal.pageSize.getHeight();
@@ -35,6 +35,9 @@ const Preview = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-6">
+      <h1 className="bg-emerald-600 p-2 rounded-md font-bold w-full text-center">
+        Front Page Preview
+      </h1>
       <FrontPagePreview ref={previewRef} data={data} />
       <button
         onClick={handleDownload}
