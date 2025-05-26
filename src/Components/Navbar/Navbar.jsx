@@ -9,7 +9,7 @@ const Navbar = () => {
           to="/"
           className="btn btn-ghost normal-case text-2xl font-extrabold text-emerald-200 hover:text-white transition-colors duration-300"
         >
-          FPage
+          Frontify25
         </Link>
       </div>
       <div className="flex-none">
@@ -21,14 +21,6 @@ const Navbar = () => {
             >
               Home
             </Link>
-          </li>
-          <li>
-            <a
-              href="#support"
-              className="hover:text-white hover:bg-emerald-600 rounded-md px-3 py-1 transition cursor-pointer"
-            >
-              Support Me
-            </a>
           </li>
         </ul>
       </div>
