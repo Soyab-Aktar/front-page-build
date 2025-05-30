@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Homepage = () => {
   const fields = [
@@ -55,6 +56,12 @@ const Homepage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    for (const key in formData) {
+      if (!formData[key]) {
+        toast.error("Please fill the form correctly .");
+        return;
+      }
+    }
     navigate("/preview", { state: formData });
   };
 

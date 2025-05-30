@@ -4,6 +4,7 @@ import html2canvas from "html2canvas-pro";
 import jsPDF from "jspdf";
 import { useLocation } from "react-router-dom";
 import FrontPagePreview from "./FrontPagePreview";
+import { toast } from "react-toastify";
 
 const Preview = () => {
   const previewRef = useRef();
@@ -11,7 +12,7 @@ const Preview = () => {
   const data = location.state || {};
 
   const handleDownload = () => {
-    console.log("Download button clicked"); // <== ADD THIS
+    toast.success("Download Started, Thank you");
     const input = previewRef.current;
 
     if (!input) {
