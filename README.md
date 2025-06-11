@@ -1,12 +1,46 @@
-# React + Vite
+# 📄 Frontify25 – College Assignment Front Page Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔗 **Live Link:** [https://frontify25.netlify.app/](https://frontify25.netlify.app/)
 
-Currently, two official plugins are available:
+## 🎯 About the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Frontify25** is a simple and user-friendly front page generator built specifically for college assignment submissions. It helps students quickly generate a clean and formatted front page by just filling out a form.
 
-## Expanding the ESLint configuration
+This tool ensures:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ✅ All required fields must be filled before generating the output.
+- 👀 A real-time **preview section** lets users see what the front page will look like.
+- 📥 With just a click, users can **download** the front page as a **high-quality PDF**.
+
+---
+
+## 🛠️ Tech Stack
+
+- **React** – Frontend framework
+- **Tailwind CSS** – Styling
+- **React Router** – Page navigation
+- **useLocation & useRef** – Data transfer and element reference handling
+- **html2canvas & jsPDF** – Generate and download PDF
+
+---
+
+## 🧠 Features
+
+- ✏️ Simple form to input assignment details
+- 🔒 Mandatory fields to ensure complete data
+- 📄 Live preview of the front page
+- ⬇️ Download output as high-quality PDF
+- 🎯 Clean layout following departmental requirements
+
+---
+
+## 🎓 Motivation
+
+This project was created as part of a **college assignment**, tailored to the formatting and layout requirements of our department. It’s designed to save time and maintain a professional appearance for submitted work.
+
+---
+
+## 🙏 Thanks
+
+Thanks for checking out **Frontify25**!  
+Feel free to try it out and share it with your friends.
