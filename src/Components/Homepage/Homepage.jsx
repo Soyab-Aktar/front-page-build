@@ -48,7 +48,8 @@ const Homepage = () => {
   const [formData, setFormData] = useState({
     universityName: "",
     image: "",
-    tagLine: "",
+    tagLine:
+      "Four Year Under Graduate Programme SEMESTER - IV Examination (under NEP), 2025",
     roll: "",
     no: "",
     registrationNo: "",
@@ -57,6 +58,8 @@ const Homepage = () => {
     courseName: "",
     session: "",
   });
+
+  const [includeImage, setIncludeImage] = useState(true);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -66,15 +69,21 @@ const Homepage = () => {
       [name]: value,
     }));
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     for (const key in formData) {
       if (!formData[key]) {
-        toast.error("Please fill the form correctly .");
+        if (!includeImage && key === "image") continue;
+        toast.error("Please fill the form correctly.");
         return;
       }
     }
-    navigate("/preview", { state: formData });
+
+    const finalData = { ...formData };
+    if (!includeImage) finalData.image = "";
+
+    navigate("/preview", { state: finalData });
   };
 
   return (
@@ -86,23 +95,42 @@ const Homepage = () => {
           </h2>
 
           <form className="space-y-5">
-            {fields.map(({ name, label, placeholder }) => (
-              <div key={name} className="form-control w-full">
-                <label className="label mb-1">
-                  <span className="text-gray-300 font-medium tracking-wide">
-                    {label}
-                  </span>
-                </label>
+            {/* Checkbox to include/exclude image field */}
+            <div className="form-control w-full">
+              <label className="cursor-pointer label">
+                <span className="label-text text-white font-medium">
+                  Include Logo or Image?
+                </span>
                 <input
-                  type="text"
-                  name={name}
-                  placeholder={placeholder}
-                  value={formData[name]}
-                  onChange={handleChange}
-                  className="input input-bordered w-full bg-gray-900 text-white border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 placeholder-gray-500"
+                  type="checkbox"
+                  checked={includeImage}
+                  onChange={(e) => setIncludeImage(e.target.checked)}
+                  className="checkbox checkbox-emerald"
                 />
-              </div>
-            ))}
+              </label>
+            </div>
+
+            {/* Form Fields */}
+            {fields.map(({ name, label, placeholder }) => {
+              if (name === "image" && !includeImage) return null;
+              return (
+                <div key={name} className="form-control w-full">
+                  <label className="label mb-1">
+                    <span className="text-gray-300 font-medium tracking-wide">
+                      {label}
+                    </span>
+                  </label>
+                  <input
+                    type="text"
+                    name={name}
+                    placeholder={placeholder}
+                    value={formData[name]}
+                    onChange={handleChange}
+                    className="input input-bordered w-full bg-gray-900 text-white border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 placeholder-gray-500"
+                  />
+                </div>
+              );
+            })}
 
             <button
               type="submit"
