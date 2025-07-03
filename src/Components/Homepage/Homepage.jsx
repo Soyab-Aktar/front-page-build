@@ -9,6 +9,17 @@ const Homepage = () => {
       label: "University Name",
       placeholder: "Enter University Name",
     },
+    {
+      name: "image",
+      label: "Logo or image Link",
+      placeholder: "Paste your image link",
+    },
+    {
+      name: "tagLine",
+      label: "TagLine",
+      placeholder:
+        "Ex : Four Year Under Graduate Programme SEMESTER - IV Examination (under NEP), 2025",
+    },
     { name: "roll", label: "Roll", placeholder: "Enter Your Roll" },
     { name: "no", label: "No", placeholder: "Enter Your No" },
     {
@@ -36,6 +47,8 @@ const Homepage = () => {
 
   const [formData, setFormData] = useState({
     universityName: "",
+    image: "",
+    tagLine: "",
     roll: "",
     no: "",
     registrationNo: "",
@@ -55,7 +68,6 @@ const Homepage = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
     for (const key in formData) {
       if (!formData[key]) {
         toast.error("Please fill the form correctly .");
