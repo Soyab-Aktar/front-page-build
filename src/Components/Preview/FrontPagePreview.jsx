@@ -13,12 +13,12 @@ const FrontPagePreview = forwardRef(({ data }, ref) => {
     >
       <div className=" flex flex-col justify-between h-full border-8 border-double border-black p-4">
         <div className="flex flex-col justify-between">
-          <h1 className="text-7xl font-bold text-center mb-12">
+          <h1 className="text-5xl font-bold text-center mb-12">
             {formData.universityName || "Your University Name"}
           </h1>
-          <div className="w-1/2 mx-auto">
-            <img src={formData.image} className="mx-auto" />
-          </div>
+        </div>
+        <div className="w-1/2 mx-auto">
+          <img src={formData.image} className="mx-auto" />
         </div>
 
         <div>

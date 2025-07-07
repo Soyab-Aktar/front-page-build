@@ -11,8 +11,8 @@ const Homepage = () => {
     },
     {
       name: "image",
-      label: "Logo or image Link",
-      placeholder: "Paste your image link",
+      label: "Upload Logo or Image",
+      placeholder: "",
     },
     {
       name: "tagLine",
@@ -113,6 +113,38 @@ const Homepage = () => {
             {/* Form Fields */}
             {fields.map(({ name, label, placeholder }) => {
               if (name === "image" && !includeImage) return null;
+
+              if (name === "image") {
+                // Image upload input
+                return (
+                  <div key={name} className="form-control w-full">
+                    <label className="label mb-1">
+                      <span className="text-gray-300 font-medium tracking-wide">
+                        {label}
+                      </span>
+                    </label>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files[0];
+                        if (file) {
+                          const reader = new FileReader();
+                          reader.onloadend = () => {
+                            setFormData((prev) => ({
+                              ...prev,
+                              image: reader.result, // base64 image
+                            }));
+                          };
+                          reader.readAsDataURL(file);
+                        }
+                      }}
+                      className="file-input file-input-bordered w-full bg-gray-900 text-white border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 placeholder-gray-500"
+                    />
+                  </div>
+                );
+              }
+
               return (
                 <div key={name} className="form-control w-full">
                   <label className="label mb-1">
